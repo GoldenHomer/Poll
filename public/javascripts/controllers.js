@@ -31,7 +31,7 @@ function PollItemCtrl($scope, $routeParams, socket, Poll) {
 			var voteObj = { poll_id: pollId, choice: choiceId };
 			socket.emit('send:vote', voteObj);
 		} else {
-			alert('You must select an option to vote for');
+			alert('You must select a choice to vote for');
 		}
 	};
 }
