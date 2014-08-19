@@ -89,6 +89,7 @@ exports.create = function(req, res) {
 	});
 };
 
+// This is where the socket fun begins. Saving a vote
 exports.vote = function(socket) {
 	socket.on('send:vote', function(data) {
 		var ip = socket.handshake.headers['x-forwarded-for'] || socket.handshake.address.address;
