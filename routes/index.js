@@ -1,12 +1,13 @@
 // Connect to MongoDB using Mongoose
 var mongoose = require('mongoose');
-var db = mongoose.createConnection('localhost', 'PollsApp');
-if (process.env.VCAP_SERVICES) {
-   var env = JSON.parse(process.env.VCAP_SERVICES);
-   db = mongoose.createConnection(env['mongodb-2.2'][0].credentials.url);
-} else {
-   db = mongoose.createConnection('localhost', 'pollsapp');
-}
+var db = mongoose.connect('mongodb://hosay:Snoogan9s@ds063449.mongolab.com:63449/polls');
+// if (process.env.VCAP_SERVICES) {
+//    var env = JSON.parse(process.env.VCAP_SERVICES);
+//    db = mongoose.createConnection(env['mongodb-2.2'][0].credentials.url);
+// } 
+// else {
+//    db = mongoose.createConnection('localhost', 'pollsapp');
+// }
 
 // Get Poll schema and model
 var PollSchema = require('../models/Poll.js').PollSchema;
