@@ -2,7 +2,7 @@ body {
   padding-top: 50px;
 }
 
-.tab-content .lead {
+.tab-content .lead { /* all .lead in .tab-content */
 	margin-top: 20px;
 }
 
@@ -12,12 +12,17 @@ body {
 	border-collapse: collapse;
 }
 
-.result-table td {
+.result-table td { /* All tds in .result-table  */
 	padding: 8px;
 }
 
-.result-table > tbody > tr > td:first-child {
+.result-table > tbody > tr > td:first-child {/* First td nested within  */
 	width: 25%;
 	max-width: 300px;
+	text-align: right;
+}
+
+.result-table td table {
+	background-color: lightblue;
 	text-align: right;
 }

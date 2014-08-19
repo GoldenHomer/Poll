@@ -1,6 +1,6 @@
 // Connect to MongoDB using Mongoose
 var mongoose = require('mongoose');
-var db;
+var db = mongoose.createConnection('localhost', 'PollsApp');
 if (process.env.VCAP_SERVICES) {
    var env = JSON.parse(process.env.VCAP_SERVICES);
    db = mongoose.createConnection(env['mongodb-2.2'][0].credentials.url);
@@ -56,11 +56,10 @@ exports.poll = function(req, res) {
 			// Attach info about user's past voting on this poll
 			poll.userVoted = userVoted;
 			poll.userChoice = userChoice;
-
 			poll.totalVotes = totalVotes;
-		
 			res.json(poll);
-		} else {
+		} 
+		else {
 			res.json({error:true});
 		}
 	});
@@ -69,10 +68,12 @@ exports.poll = function(req, res) {
 // JSON API for creating a new poll
 exports.create = function(req, res) {
 	var reqBody = req.body,
-			// Filter out choices with empty text
-			choices = reqBody.choices.filter(function(v) { return v.text != ''; }),
-			// Build up poll object to save
-			pollObj = {question: reqBody.question, choices: choices};
+
+		// Filter out choices with empty text
+		choices = reqBody.choices.filter(function(v) { return v.text != ''; }),
+
+		// Build up poll object to save
+		pollObj = {question: reqBody.question, choices: choices};
 				
 	// Create poll model from built up poll object
 	var poll = new Poll(pollObj);
@@ -81,7 +82,8 @@ exports.create = function(req, res) {
 	poll.save(function(err, doc) {
 		if(err || !doc) {
 			throw 'Error';
-		} else {
+		} 
+		else {
 			res.json(doc);
 		}		
 	});
@@ -117,7 +119,6 @@ exports.vote = function(socket) {
 						}
 					}
 				}
-				
 				socket.emit('myvote', theDoc);
 				socket.broadcast.emit('vote', theDoc);
 			});			
