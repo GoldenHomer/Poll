@@ -14,7 +14,7 @@ var Poll = db.model('polls', PollSchema);
 
 // Main application view
 exports.index = function(req, res) {
-	res.render('index');
+	res.render('index', {title:'Polls'});
 };
 
 // JSON API for list of polls

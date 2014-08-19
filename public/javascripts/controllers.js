@@ -25,7 +25,7 @@ function PollItemCtrl($scope, $routeParams, socket, Poll) {
 	
 	$scope.vote = function() {
 		var pollId = $scope.poll._id,
-				choiceId = $scope.poll.userVote;
+			choiceId = $scope.poll.userVote;
 		
 		if(choiceId) {
 			var voteObj = { poll_id: pollId, choice: choiceId };
@@ -72,17 +72,15 @@ function PollNewCtrl($scope, $location, Poll) {
 				
 				// Call API to save poll to the database
 				newPoll.$save(function(p, resp) {
-					if(!p.error) {
-						// If there is no error, redirect to the main view
-						$location.path('polls');
-					} else {
-						alert('Could not create poll');
-					}
+					!p.error ? $location.path('polls')  : alert('Could not create poll');
+					// If there is no error, redirect to the main view
 				});
-			} else {
+			} 
+			else {
 				alert('You must enter at least two choices');
 			}
-		} else {
+		} 
+		else {
 			alert('You must enter a question');
 		}
 	};

@@ -1,4 +1,1 @@
-Poll
-====
-
-Trying a real time poll
+Real-time poll in the MEAN stack.
