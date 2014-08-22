@@ -47,7 +47,7 @@ exports.poll = function(req, res) {
 					var vote = choice.votes[v];
 					totalVotes++;
 
-					if(vote.ip === (req.header('x-forwarded-for') || req.ip)) {
+					if(vote.ip === req.ip) {
 						userVoted = true;
 						userChoice = { _id: choice._id, text: choice.text };
 					}
