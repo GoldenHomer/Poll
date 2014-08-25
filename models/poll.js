@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
 // Subdocument schema for votes
-var voteSchema = new mongoose.Schema({ ip: String }); // There may be an error here.
+var voteSchema = new mongoose.Schema({ ip: 'String' }); // There may be an error here.
 
 // Subdocument schema for poll choices
 var choiceSchema = new mongoose.Schema({ 
