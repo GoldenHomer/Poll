@@ -1,12 +1,11 @@
-	/*jshint node:true*/
-var express = require('express');
-var routes = require('./routes');
-var http = require('http');
-var path = require('path');
-
-var app = express();
-var server = http.createServer(app);
-var io = require('socket.io').listen(server);
+/*jshint node:true*/
+var express = require('express'),
+	routes = require('./routes'),
+	http = require('http'),
+	path = require('path'),
+	app = express(),
+	server = http.createServer(app),
+	io = require('socket.io').listen(server);
 
 app.set('port', process.env.VCAP_APP_PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
