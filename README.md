@@ -1,6 +1,7 @@
 Real-time poll in the MEAN stack. Trying to determine why this works locally but not when deployed to the web. 
 
 Having trouble deploying to Heroku and I do not know why. If you want to do see what this does and you have node installed, you can do it locally using:
+
 *npm install
 and then
 
